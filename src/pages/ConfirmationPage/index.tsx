@@ -33,7 +33,7 @@ const ConfirmationPage: React.FC = () => {
       <Navbar />
       <Container>
         <Icon />
-        <Subtitle>สินเชื่อสำเร็จ!</Subtitle>
+        <Subtitle>สำเร็จ!</Subtitle>
       </Container>
     </>
   );
