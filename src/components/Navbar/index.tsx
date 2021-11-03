@@ -13,6 +13,18 @@ const Container = styled.div`
   padding-right: 30px;
   justify-content: space-between;
   cursor: pointer;
+
+  @media screen and (max-width: 1000px) {
+    font-size: 1.5em;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 1.3em;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 1.2em;
+  }
 `;
 
 const Home = styled.div``;
