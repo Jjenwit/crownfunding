@@ -89,6 +89,7 @@ const InfoSetting: React.FC = () => {
           id="limit"
           max={5000000}
           min={1000}
+          step={1000}
           value={limit}
           onChange={(e) => {
             handleLimitChange(e.target.value);

@@ -1,6 +1,6 @@
-import { Loan } from './interfaces';
+import { ILoan, IRefinance } from './interfaces';
 
-const loanList: Loan[] = [
+export const loanList: ILoan[] = [
   {
     name: 'สินเชื่อบุคคลเพอร์ซันนัลแคช',
     interest: 0.09,
@@ -228,4 +228,40 @@ const loanList: Loan[] = [
   },
 ];
 
-export default loanList;
+export const refinanceList: IRefinance[] = [
+  {
+    id: 1,
+    interest: 0.0289,
+    discount: 49100,
+    monthlyValue: 6100,
+    fees: 13700,
+  },
+  {
+    id: 2,
+    interest: 0.0295,
+    discount: 67900,
+    monthlyValue: 7000,
+    fees: 13500,
+  },
+  {
+    id: 3,
+    interest: 0.03,
+    discount: 52700,
+    monthlyValue: 7000,
+    fees: 1000,
+  },
+  {
+    id: 4,
+    interest: 0.033,
+    discount: 42000,
+    monthlyValue: 7500,
+    fees: 500,
+  },
+  {
+    id: 5,
+    interest: 0.035,
+    discount: 28000,
+    monthlyValue: 7500,
+    fees: 5000,
+  },
+];

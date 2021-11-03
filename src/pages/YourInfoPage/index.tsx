@@ -16,6 +16,19 @@ const Container = styled.div`
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (max-width: 1300px) {
+    width: 80%;
+  }
+  @media screen and (max-width: 1020px) {
+    width: 80%;
+  }
+  @media screen and (max-width: 600px) {
+    width: 90%;
+  }
+  @media screen and (max-width: 450px) {
+    width: 90%;
+  }
 `;
 
 const Title = styled.h1`
@@ -27,6 +40,13 @@ const Title = styled.h1`
   padding-top: 20px;
   margin-top: 0px;
   margin-bottom: 0px;
+
+  @media screen and (max-width: 620px) {
+    font-size: 2em;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: 1.5em;
+  }
 `;
 
 const Subtitle = styled.h1`
@@ -37,6 +57,16 @@ const Subtitle = styled.h1`
   text-align: center;
   margin-top: 0px;
   margin-bottom: 40px;
+
+  @media screen and (max-width: 1020px) {
+    font-size: 1.2em;
+  }
+  @media screen and (max-width: 620px) {
+    font-size: 1.1em;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: 1.1em;
+  }
 `;
 
 const Form = styled.form`
@@ -47,6 +77,13 @@ const FormControl = styled.div`
   display: flex;
   flex-direction: column;
   width: 48%;
+
+  @media screen and (max-width: 850px) {
+    width: 90%;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 
 const FormLabel = styled.label``;
@@ -98,6 +135,10 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
+
+  @media screen and (max-width: 850px) {
+    flex-wrap: wrap;
+  }
 `;
 
 const NextBtn = styled.button`
@@ -119,6 +160,10 @@ const NextBtn = styled.button`
   &:active {
     background-color: var(--darkOrange);
   }
+
+  @media screen and (max-width: 850px) {
+    margin-bottom: 30px;
+  }
 `;
 
 const ScanBtn = styled.button`
@@ -138,6 +183,11 @@ const ScanBtn = styled.button`
   cursor: pointer;
   &:active {
     background-color: var(--darkOrange);
+  }
+
+  @media screen and (max-width: 850px) {
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 
@@ -182,12 +232,10 @@ const YourInfoPage: React.FC = () => {
                 <FormOption value="" disabled>
                   โปรดระบุอาชีพ
                 </FormOption>
-                <FormOption value="พนักงานบริษัทเอกชน">
-                  พนักงานบริษัทเอกชน
-                </FormOption>
-                <FormOption value="ข้าราชการ">ข้าราชการ</FormOption>
-                <FormOption value="เจ้าของกิจการ">เจ้าของกิจการ</FormOption>
-                <FormOption value="อาชีพอิสระ">อาชีพอิสระ</FormOption>
+                <FormOption value="0.9">พนักงานบริษัทเอกชน</FormOption>
+                <FormOption value="0.85">ข้าราชการ</FormOption>
+                <FormOption value="1">เจ้าของกิจการ</FormOption>
+                <FormOption value="0.8">อาชีพอิสระ</FormOption>
               </FormSelect>
             </FormControl>
             <FormControl>
@@ -203,9 +251,9 @@ const YourInfoPage: React.FC = () => {
                 <FormOption value="" disabled>
                   โปรดระบุอายุงาน
                 </FormOption>
-                <FormOption value="6">น้อยกว่า 6 เดือน</FormOption>
-                <FormOption value="9">6 เดือน - 1 ปี</FormOption>
-                <FormOption value="12">1 ปีขึ้นไป</FormOption>
+                <FormOption value="0.9">น้อยกว่า 6 เดือน</FormOption>
+                <FormOption value="0.95">6 เดือน - 1 ปี</FormOption>
+                <FormOption value="1">1 ปีขึ้นไป</FormOption>
               </FormSelect>
             </FormControl>
           </Wrapper>

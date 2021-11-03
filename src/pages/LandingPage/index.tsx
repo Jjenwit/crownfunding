@@ -15,6 +15,19 @@ const Container = styled.div`
   padding-top: 60px;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (max-width: 1300px) {
+    width: 50%;
+  }
+  @media screen and (max-width: 1020px) {
+    width: 70%;
+  }
+  @media screen and (max-width: 600px) {
+    width: 90%;
+  }
+  @media screen and (max-width: 450px) {
+    width: 90%;
+  }
 `;
 
 const Title = styled.h1`
@@ -24,6 +37,20 @@ const Title = styled.h1`
   color: var(--white);
   text-align: center;
   margin-bottom: 100px;
+
+  @media screen and (max-width: 900px) {
+    font-size: 3em;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 2.7em;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: 2.5em;
+  }
+  @media screen and (max-width: 360px) {
+    font-size: 2em;
+  }
 `;
 
 const Button = styled.div`
@@ -102,8 +129,12 @@ const LandingPage: React.FC = () => {
   const addOptions = () => {
     setHasOptions(true);
     setOptions([
-      <Option onClick={() => history.push('/refinance/home')}>บ้าน</Option>,
-      <Option onClick={() => history.push('/refinance/car')}>รถ</Option>,
+      <Option onClick={() => history.push('/refinance/home')} key="home">
+        บ้าน
+      </Option>,
+      <Option onClick={() => history.push('/refinance/car')} key="car">
+        รถ
+      </Option>,
     ]);
   };
 

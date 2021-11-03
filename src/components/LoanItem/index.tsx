@@ -1,7 +1,9 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
 import InfoContext from '../../contexts/InfoContext';
-import { Loan } from '../../interfaces';
+import { ILoan } from '../../interfaces';
+
+import { useHistory } from 'react-router';
 
 const Container = styled.div`
   display: flex;
@@ -12,6 +14,10 @@ const Container = styled.div`
   border-radius: 10px;
   box-shadow: 5px 5px 10px;
   background-color: var(--white);
+
+  @media screen and (max-width: 750px) {
+    height: auto;
+  }
 `;
 
 const Header = styled.div`
@@ -26,15 +32,22 @@ const Header = styled.div`
   flex-grow: 1;
   border-radius: 10px 10px 0px 0px;
   background-color: var(--orange);
+
+  @media screen and (max-width: 900px) {
+    font-size: 1.1em;
+  }
 `;
 
 const Body = styled.div`
   display: flex;
-  justify-content: space-between;
   color: var(--darkBlue);
-  display: flex;
   flex-grow: 3;
   justify-content: space-around;
+
+  @media screen and (max-width: 750px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Column = styled.div`
@@ -45,18 +58,50 @@ const Column = styled.div`
   align-items: center;
   padding-top: 5px;
   padding-bottom: 5px;
+
+  @media screen and (max-width: 1000px) {
+    width: 25%;
+  }
+
+  @media screen and (max-width: 750px) {
+    width: 90%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 2px solid var(--grey);
+  }
 `;
 
 const ImageColumn = styled(Column)`
   width: 15%;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media screen and (max-width: 1000px) {
+    width: 25%;
+  }
+
+  @media screen and (max-width: 750px) {
+    width: 90%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 2px solid var(--grey);
+  }
 `;
 
 const Info = styled.div`
   font-size: 1.5em;
+
+  @media screen and (max-width: 900px) {
+    font-size: 1.2em;
+  }
 `;
 
 const Label = styled.div`
   font-size: 0.9em;
+
+  @media screen and (max-width: 900px) {
+    font-size: 0.8em;
+  }
 `;
 
 const Image = styled.img`
@@ -79,9 +124,24 @@ const Button = styled.button`
   &:active {
     background-color: var(--darkOrange);
   }
+
+  @media screen and (max-width: 900px) {
+    font-size: 0.8em;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  @media screen and (max-width: 750px) {
+    font-size: 1em;
+    padding: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 70%;
+  }
 `;
 
-const LoanItem: React.FC<Loan> = (props) => {
+const LoanItem: React.FC<ILoan> = (props) => {
   const { name, interest, image } = props;
 
   const infoContext = useContext(InfoContext);
@@ -93,6 +153,21 @@ const LoanItem: React.FC<Loan> = (props) => {
     (limit * (rate * (1 + rate) ** period)) / ((1 + rate) ** period - 1)
   );
   const totalValue = monthlyValue * period;
+
+  const {
+    handleMonthlyValueChange,
+    handleInterestChange,
+    handleTotalValueChange,
+  } = infoContext;
+
+  const history = useHistory();
+
+  const onSubmit = () => {
+    handleMonthlyValueChange(monthlyValue.toString());
+    handleInterestChange(interest.toString());
+    handleTotalValueChange(totalValue.toString());
+    history.push('/adjust');
+  };
 
   return (
     <Container>
@@ -112,7 +187,7 @@ const LoanItem: React.FC<Loan> = (props) => {
         </Column>
         <ImageColumn>
           <Image src={image} alt="" />
-          <Button>ลงทะเบียน</Button>
+          <Button onClick={onSubmit}>ลงทะเบียน</Button>
         </ImageColumn>
       </Body>
     </Container>

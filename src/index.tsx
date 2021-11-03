@@ -6,13 +6,19 @@ import reportWebVitals from './reportWebVitals';
 
 import { BrowserRouter } from 'react-router-dom';
 import { InfoContextProvider } from './contexts/InfoContext';
+import { HomeRefinanceContextProvider } from './contexts/HomeRefinanceContext';
+import { CarRefinanceContextProvider } from './contexts/CarRefinanceContext';
 
 ReactDOM.render(
   <BrowserRouter>
     <InfoContextProvider>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
+      <HomeRefinanceContextProvider>
+        <CarRefinanceContextProvider>
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        </CarRefinanceContextProvider>
+      </HomeRefinanceContextProvider>
     </InfoContextProvider>
   </BrowserRouter>,
   document.getElementById('root')
