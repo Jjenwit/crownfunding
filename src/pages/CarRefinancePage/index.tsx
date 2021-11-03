@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router';
 
 import CarRefinanceContext from '../../contexts/CarRefinanceContext';
@@ -171,7 +171,8 @@ const CarRefinancePage: React.FC = () => {
   } = carRefinanceContext;
   const history = useHistory();
 
-  const onSubmit = (e: any) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     history.push('/refinance/car/results');
   };
 
@@ -180,7 +181,7 @@ const CarRefinancePage: React.FC = () => {
       <Navbar />
       <Container>
         <Title>รีไฟเเนนซ์รถ</Title>
-        <Form>
+        <Form onSubmit={onSubmit}>
           <Wrapper>
             <FormControl>
               <FormLabel htmlFor="price">ราคารถที่ซื้อ</FormLabel>
@@ -483,9 +484,7 @@ const CarRefinancePage: React.FC = () => {
             </FormControl>
           </Wrapper>
           <Wrapper>
-            <NextBtn type="button" onClick={onSubmit}>
-              ค้นหาโปรโมชั่น
-            </NextBtn>
+            <NextBtn>ค้นหาโปรโมชั่น</NextBtn>
           </Wrapper>
         </Form>
       </Container>

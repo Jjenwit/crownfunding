@@ -95,7 +95,9 @@ const InfoSetting: React.FC = () => {
             handleLimitChange(e.target.value);
           }}
         />
-        <RangeNumber>{parseInt(limit).toLocaleString()} บาท</RangeNumber>
+        <RangeNumber>
+          {limit ? parseInt(limit).toLocaleString() + ' บาท' : '-'}
+        </RangeNumber>
       </RangeWrapper>
       <DropdownWrapper>
         <Label htmlFor="period">ระยะเวลาสินเชื่อ</Label>

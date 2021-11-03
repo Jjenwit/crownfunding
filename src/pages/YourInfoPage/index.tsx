@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router';
 
 import InfoContext from '../../contexts/InfoContext';
@@ -207,7 +207,8 @@ const YourInfoPage: React.FC = () => {
   } = infoContext;
   const history = useHistory();
 
-  const onSubmit = (e: any) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     history.push('/results');
   };
 
@@ -217,7 +218,7 @@ const YourInfoPage: React.FC = () => {
       <Container>
         <Title>ทำความรู้จักกับคุณมากขึ้น</Title>
         <Subtitle>ข้อมูลของคุณจะถูกเก็บเป็นความลับ</Subtitle>
-        <Form>
+        <Form onSubmit={onSubmit}>
           <Wrapper>
             <FormControl>
               <FormLabel htmlFor="job">อาชีพ</FormLabel>
@@ -314,9 +315,7 @@ const YourInfoPage: React.FC = () => {
             </ScanBtn>
           </Wrapper>
           <Wrapper>
-            <NextBtn type="button" onClick={onSubmit}>
-              ดำเนินการต่อ
-            </NextBtn>
+            <NextBtn>ดำเนินการต่อ</NextBtn>
           </Wrapper>
         </Form>
       </Container>

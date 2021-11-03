@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import InfoContext from '../../contexts/InfoContext';
 import { useHistory } from 'react-router';
 
@@ -123,7 +123,8 @@ const AdjustPage: React.FC = () => {
 
   const history = useHistory();
 
-  const onSubmit = () => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     calculateLoan();
     history.push('/yourloan');
   };
@@ -133,34 +134,38 @@ const AdjustPage: React.FC = () => {
       <Navbar />
       <Container>
         <Title>ปรับเเต่งสินเชื่อของคุณ</Title>
-        <Form>
+        <Form onSubmit={onSubmit}>
           <FormControl>
             <FormLabel htmlFor="monthly">ยอมผ่อนชำระต่อเดือน</FormLabel>
             <FormInput
               id="monthly"
+              type="number"
               value={monthlyValue}
               onChange={(e) => handleMonthlyValueChange(e.target.value)}
+              required
             />
           </FormControl>
           <FormControl>
             <FormLabel htmlFor="interest">{'อัตราดอกเบี้ย(ต่อปี)'}</FormLabel>
             <FormInput
               id="interest"
+              type="number"
               value={interest}
               onChange={(e) => handleInterestChange(e.target.value)}
+              required
             />
           </FormControl>
           <FormControl>
             <FormLabel htmlFor="total">จำนวนเงินที่ต้องจ่ายทั้งหมด</FormLabel>
             <FormInput
               id="total"
+              type="number"
               value={totalValue}
               onChange={(e) => handleTotalValueChange(e.target.value)}
+              required
             />
           </FormControl>
-          <NextBtn type="button" onClick={onSubmit}>
-            คำนวณสินเชื่อ
-          </NextBtn>
+          <NextBtn>คำนวณสินเชื่อ</NextBtn>
         </Form>
       </Container>
     </>

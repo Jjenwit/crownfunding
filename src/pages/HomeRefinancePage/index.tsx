@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router';
 
 import HomeRefinanceContext from '../../contexts/HomeRefinanceContext';
@@ -167,7 +167,8 @@ const HomeRefinancePage: React.FC = () => {
   } = homeRefinanceContext;
   const history = useHistory();
 
-  const onSubmit = (e: any) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     history.push('/refinance/home/results');
   };
 
@@ -176,7 +177,7 @@ const HomeRefinancePage: React.FC = () => {
       <Navbar />
       <Container>
         <Title>รีไฟเเนนซ์บ้าน</Title>
-        <Form>
+        <Form onSubmit={onSubmit}>
           <Wrapper>
             <FormControl>
               <FormLabel htmlFor="price">ราคาบ้านที่ซื้อ</FormLabel>
@@ -468,9 +469,7 @@ const HomeRefinancePage: React.FC = () => {
             </FormControl>
           </Wrapper>
           <Wrapper>
-            <NextBtn type="button" onClick={onSubmit}>
-              ค้นหาโปรโมชั่น
-            </NextBtn>
+            <NextBtn>ค้นหาโปรโมชั่น</NextBtn>
           </Wrapper>
         </Form>
       </Container>

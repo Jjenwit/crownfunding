@@ -174,11 +174,13 @@ const LoanItem: React.FC<ILoan> = (props) => {
       <Header>{name}</Header>
       <Body>
         <Column>
-          <Info>{totalValue.toLocaleString()} บาท</Info>
+          <Info>{totalValue ? totalValue.toLocaleString() + ' บาท' : '-'}</Info>
           <Label>ยอดชำระรวมพร้อมดอกเบี้ย</Label>
         </Column>
         <Column>
-          <Info>{monthlyValue.toLocaleString()} บาท</Info>
+          <Info>
+            {monthlyValue ? monthlyValue.toLocaleString() + ' บาท' : '-'}
+          </Info>
           <Label>ยอดผ่อนชำระต่อเดือน</Label>
         </Column>
         <Column>
