@@ -153,6 +153,7 @@ const AdjustPage: React.FC = () => {
               value={interest}
               onChange={(e) => handleInterestChange(e.target.value)}
               required
+              step="any"
             />
           </FormControl>
           <FormControl>
