@@ -270,6 +270,7 @@ const YourInfoPage: React.FC = () => {
                   handleIncomeChange(e.target.value);
                 }}
                 id="income"
+                min="15000"
               />
             </FormControl>
             <FormControl>
@@ -283,6 +284,8 @@ const YourInfoPage: React.FC = () => {
                   handleLimitChange(e.target.value);
                 }}
                 id="limit"
+                min="1000"
+                max="5000000"
               />
             </FormControl>
           </Wrapper>
