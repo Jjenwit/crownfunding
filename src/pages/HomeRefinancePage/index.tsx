@@ -78,6 +78,7 @@ const FormInput = styled.input`
 `;
 
 const FormSelect = styled.select`
+  -webkit-appearance: none;
   font-family: 'Kanit', sans-serif;
   font-size: 1em;
   height: 50px;
