@@ -146,7 +146,7 @@ const YourLoanPage: React.FC = () => {
             <FormLabel htmlFor="interest">{'อัตราดอกเบี้ย(ต่อปี)'}</FormLabel>
             <FormInput
               id="interest"
-              value={parseFloat(interest).toFixed(2)}
+              value={(parseFloat(interest) * 100).toFixed(2) + ' %'}
               readOnly
             />
           </FormControl>
