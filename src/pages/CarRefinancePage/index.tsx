@@ -87,6 +87,8 @@ const FormSelect = styled.select`
   border-radius: 30px;
   border: 3px solid var(--darkBlue);
   cursor: pointer;
+  -webkit-appearance: none;
+  background-color: white;
   &:focus {
     outline: 3px solid var(--orange);
   }

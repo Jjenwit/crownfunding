@@ -78,7 +78,6 @@ const FormInput = styled.input`
 `;
 
 const FormSelect = styled.select`
-  -webkit-appearance: none;
   font-family: 'Kanit', sans-serif;
   font-size: 1em;
   height: 50px;
@@ -88,6 +87,8 @@ const FormSelect = styled.select`
   border-radius: 30px;
   border: 3px solid var(--darkBlue);
   cursor: pointer;
+  -webkit-appearance: none;
+  background-color: white;
   &:focus {
     outline: 3px solid var(--orange);
   }
